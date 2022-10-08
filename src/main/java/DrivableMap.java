@@ -30,7 +30,7 @@ class DrivableMap {
      */
     public boolean addDrivable(String identity, Drivable object){
         if (drivable_map.get(identity) != null){
-            return true;
+            return false;
         }
         else{
             drivable_map.put(identity,object);
@@ -66,8 +66,15 @@ class DrivableMap {
      *       returns a List containing all of the Tradable items in
      *       drivable_map.
      */
-    public void getTradable(){
-
+    public List<Tradable> getTradable(){
+        List<Tradable> shit = new ArrayList<Tradable>();
+        for(Object value: drivable_map.values()){
+            if(value instanceof Tradable){
+                Tradable va = (Tradable) value;
+                shit.add(va);
+            }
+        }
+        return shit;
     }
 
 
